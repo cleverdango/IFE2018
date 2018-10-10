@@ -42,10 +42,29 @@
             console.log(document.getElementsByTagName('li'));
         }
 
+        function getAllListItem2() {
+            // 返回页面中所有li标签
+            console.log(document.body.querySelectorAll('li'));
+        }
+
         function findAllHtmlSpanInOneSection(sectionId) {
             // 返回某个section下所有span中内容为HTML的span标签
             var section = document.getElementById(sectionId);
             var spans = section.getElementsByTagName('span');
+            var newSpans = [];
+            for (var i = 0; i < spans.length; i++) {
+                if (spans[i].textContent === 'HTML') {
+                    newSpans.push(spans[i]);
+                }
+            }
+
+            console.log(newSpans);
+        }
+
+        function findAllHtmlSpanInOneSection2(sectionId) {
+            // 返回某个section下所有span中内容为HTML的span标签
+            var section = document.querySelector('#' + sectionId);
+            var spans = section.querySelectorAll('span');
             var newSpans = [];
             for (var i = 0; i < spans.length; i++) {
                 if (spans[i].textContent === 'HTML') {
@@ -71,6 +90,21 @@
             console.log(newlis);
         }
 
+        function findListItem2(sectionId, spanCont) {
+            // 返回某个section下，所有所包含span内容为spanCont的LI标签
+            var section = document.querySelector('#' + sectionId);
+            var lis = section.querySelectorAll('li');
+            var spans = section.querySelectorAll('span');
+            var newlis = [];
+            for (var i = 0; i < lis.length; i++) {
+                if (spans[i].textContent === spanCont) {
+                    newlis.push(lis[i]);
+                }
+            }
+
+            console.log(newlis);
+        }
+        
         function getActiveLinkContent(sectionId) {
             // 返回某个section下，class为active的链接中包含的文字内容
             var section = document.getElementById(sectionId);
@@ -78,10 +112,21 @@
             console.log(section.getElementsByClassName('active')[0].textContent);
         }
 
+
+
+        function getActiveLinkContent2(sectionId) {
+            // 返回某个section下，class为active的链接中包含的文字内容
+            console.log(document.querySelector('#'+sectionId+' a.active').textContent);
+        }
+
         getAllListItem();
         findAllHtmlSpanInOneSection('news-top');
         findListItem('news-top', 'JS');
         getActiveLinkContent('news-top');
+        getAllListItem2();
+        findAllHtmlSpanInOneSection2('news-top');
+        findListItem2('news-top', 'JS');
+        getActiveLinkContent2('news-top');
 
     </script>
 </body>
