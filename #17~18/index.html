@@ -31,11 +31,15 @@
 
         }
         function divide() {
-            let result = document.getElementById('first-number').value / document.getElementById('second-number').value;
+            const first = document.getElementById('first-number').value;
+            const second = document.getElementById('second-number').value;
+            let result;
+
             try {
-                if (document.getElementById('second-number').value){
+                if (document.getElementById('second-number').value) {
                     throw "分母不能为0";
                 }
+                result = first / second;
             } catch (error) {
                 result = error;
             }
