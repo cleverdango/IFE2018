@@ -15,7 +15,7 @@
         function dec2bin(decNumber) {
             // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
             var str = '';
-            if (decNumber >= 0) {
+            if (decNumber >= 0 || Math.floor(decNumber) == decNumber) {
                 while (decNumber > 0) {
                     str = Math.floor(decNumber % 2) + str;
                     decNumber = Math.floor(decNumber / 2);
