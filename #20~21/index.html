@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+
+<body>
+    <input id="name" type="text">
+    <button id="submit-btn">Submit</button>
+    <script>
+        function print() {
+            const nameValue = document.getElementById("name").value;
+            console.log(nameValue);
+        }
+
+        function clear() {
+            document.getElementById("name").value = "";
+        }
+
+        // 内置事件处理器
+        document.getElementById("submit-btn").onclick = print;
+        
+        // 新的事件处理器
+        // 1. 可以赋予多个事件处理器（原事件处理器会把上一个覆盖）
+        // 2. 可以移除事件监听器
+        document.getElementById("name").addEventListener("keyup", function (e) {
+            if (e.keyCode === 13) {
+                print();
+            }
+        })
+
+        document.getElementById("name").addEventListener("keyup", function () {
+            if (event.keyCode === 27) {
+                clear();
+            }
+        })
+
+    </script>
+</body>
+
+</html>
