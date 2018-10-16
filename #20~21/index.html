@@ -32,10 +32,13 @@
         })
 
         document.getElementById("name").addEventListener("keyup", function () {
+            // event是window对象上的全局属性
+            // 已经被废弃，尽量不使用
             if (event.keyCode === 27) {
                 clear();
             }
         })
+
 
     </script>
 </body>
